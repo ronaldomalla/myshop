@@ -1,0 +1,94 @@
+{%extends 'base.html'%}
+{%load static%}
+{%block content%}
+{%load cart%}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+
+
+  
+
+<div class="container-fluid mt-3">
+
+
+  <!-- Filter -->
+  <div class="col-lg-3">
+  {%for category in categories%}  
+  <div class="list-group">
+  <a href="/?category={{category.id}}" class="list-group-item list-group-item-action" aria-current="true">
+    {{category.category}} 
+  </a>
+  {%endfor%}
+</div>
+
+
+<!-- Products -->
+<div  id="product0"class="col-lg-9"></div>
+{%for product in products%}
+<div class="card" style="width: 17rem;margin-left: 300px;" id='{{product.id}}'>
+  <img src="{{product.image.url}}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{product.name}}</h5>
+    <p class="card-text">{{product.description}}</p>
+    
+      {%if product|is_in_cart:request.session.cart%}
+       <div class="container card-footer">
+          
+
+           <!-- Plus Quantity In Cart -->
+         <form action="/#{{product.id}}" method="post">
+          {%csrf_token%}
+          <input type="text" name="remove" value="True" hidden>
+          <input type="text" name="product_id" value="{{product.id}}" hidden>
+          <button class="btn btn-primary" type='sumbit' >-</button>
+         </form>
+
+
+          <div class="center-text">{{product|cart_quantity:request.session.cart}}
+          </div>
+           <!-- Plus Quantity In Cart -->
+          <form action="/#{{product.id}}" method="post">
+          {%csrf_token%}  
+          <input type="text" name="product_id" value="{{product.id}}" hidden>
+          <button class="btn btn-primary" type='sumbit' >+</button>
+          
+         </form>
+
+       </div>
+       {%else%}
+
+      
+     
+    <form action="/#{{product.id}}" method="post">
+      {%csrf_token%}
+    <input type="text" name="product_id" value="{{product.id}}" hidden>
+    <button class="btn btn-primary" type='sumbit' >Add to cart </button>
+    </form>
+    {%endif%}
+
+{%endfor%}
+</div>
+  </div>
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+</body>
+</html>
+{%endblock content%}

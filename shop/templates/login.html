@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{%load static%}
+{%block content%}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>SignUp</title>
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+         
+
+
+        <div class="container">
+               
+                        </div>
+                      
+                        <fieldset>
+
+
+                                <form action="{%url 'login'%}" method="post">
+
+                                   
+                                        
+                                        <!-- Form Elements -->
+                                        {%csrf_token%}
+                                        
+                                        
+                                        
+                                        <input type="email" placeholder="example@gmail.com" name="email" value="{{value.email}}"><br>
+                                        <input type="password" placeholder="Password" name="password"><br>
+                                        <button type="submit" class="btn btn-primary">Login</button>
+                                
+                                        
+                                </form>
+                        </fieldset>
+
+
+
+                </div>
+
+        </div>
+ <!-- Error Messages Handling -->
+
+          {%if error%}
+         
+          <div class="alert alert-danger" role="alert">
+                  {{error}}
+          </div>
+          
+          {%endif%}
+          
+</body>
+
+</html>
+
+
+
+{%endblock content%}

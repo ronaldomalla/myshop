@@ -1,0 +1,66 @@
+
+.container{
+    margin: auto;
+    box-shadow: 5px 4px 100px;
+    border-radius: 25px;
+    
+}
+
+.forms{
+
+    padding: 50px;
+    margin: 10px;
+    font-size: 30px;
+   position: relative;
+    text-align: center;
+    font: arial;
+    display: block;
+    margin-top: 50px;
+    display: inline-block;
+   
+    
+  
+    
+
+
+}
+
+
+.forms input{
+
+    padding: 10px;
+    margin: 5px;
+    outline: none;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    text-align: center;
+    font: arial;
+    background: none;
+    color:black;
+    
+    
+    
+}
+
+
+input:hover{
+
+    border-bottom:1px solid red;
+}
+
+
+h1{
+    text-align: center;
+    
+
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+
+body{
+    background-image: url(../images/bg.jpg);
+    background-position: center;
+    background-repeat: none;
+    background-attachment: fixed;
+}

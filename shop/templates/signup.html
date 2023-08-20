@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{%load static%}
+{%block content%}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>SignUp</title>
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+         
+
+
+        <div class="container">
+               
+                        </div>
+                      
+                        <fieldset>
+
+
+                                <form action="{%url 'signup'%}" method="post">
+
+                                   
+                                        
+                                        <!-- Form Elements -->
+                                        {%csrf_token%}
+                                        
+                                        
+                                        <input type="text" placeholder="First Name" name="firstname" value="{{value.firstname}}"><br>
+                                        <input type="text" placeholder="Last Name" name="lastname" value="{{value.lastname}}"><br>
+                                        <input type="email" placeholder="example@gmail.com" name="email" value="{{value.email}}"><br>
+                                        <input type="number" placeholder="Enter Your Phone Number" name="phone" value="{{value.phone}}"><br>
+                                        <input type="password" placeholder="Password" name="password"><br>
+                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                
+                                        
+                                </form>
+                        </fieldset>
+
+
+
+                </div>
+
+        </div>
+ <!-- Error Messages Handling -->
+
+          {%if error%}
+         
+          <div class="alert alert-danger" role="alert">
+                  {{error}}
+          </div>
+          
+          {%endif%}
+</body>
+
+</html>
+
+
+
+{%endblock content%}
